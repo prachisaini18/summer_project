@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>Summer project/GerealUseCase</title>
+    <script>
+        function playSong() {
+            var songName = document.getElementById("song_name").value;
+            var searchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(songName);
+            window.open(searchUrl, '_blank');
+        }
+    </script>
+     <script>
+        function openChrome() {
+            var searchUrl = "https://www.google.com";
+            window.open(searchUrl, '_blank');
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1>General Purpose Use Case</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a>Google top results</a></li>
+            <form action="http://13.127.225.243/cgi-bin/googleSearch.py" method="post">
+                 <label for="query">Enter you query </label>
+                 <input type="text" name="que"><br>
+                 <input type="submit" value="Search">
+            </form>
+        </ul>
+        <ul>
+                <li><a>Youtube</a></li>
+            <label for="song_name">Enter Song Name:</label>
+            <input type="text" id="song_name" name="song_name" required>
+            <button onclick="playSong()">Play</button>
+        </ul>
+        <ul>
+            <li><a>Chrome</a></li>
+            <label>Open google chrome </label>
+            <button onclick="openChrome()">Open Chrome</button>
+        </ul>
+    </nav>
+</body>
+</html>
