@@ -1,0 +1,50 @@
+/* Reset some default styles */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color and center align the header */
+header {
+    background-color: #630758; /* Change this color to your preference */
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #73e3e7; /* Change this color to your preference */
+    padding: 40px;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 15px;
+    background-color: #630758; /* Change this color to your preference */
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #b218a0; /* Change this color to your preference */
+}
+
+.chat-container {
+    background-color: #73e3e7;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 400px;
