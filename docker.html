@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>Command Execution</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('command-form');
+            const outputContainer = document.querySelector('.output-container pre');
+            
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+                
+                // Get the user-entered command
+                const cmd = document.getElementById('cmd').value;
+                
+                // Make a fetch request to your CGI script
+                fetch('http://13.232.92.23/cgi-bin/docker.py', {
+                    method: 'POST',
+                    body: `cmd=${encodeURIComponent(cmd)}`,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Display the response in the output container
+                    outputContainer.textContent = data;
+                    
+                    // Add animation effects if desired
+                    outputContainer.classList.add('animated-text'); // You can define CSS animations for this class
+                })
+                .catch(error => {
+                    // Handle any errors here
+                    console.error(error);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Docker</h1>
+    </header>
+    <div class="chat-container">
+        <form id="command-form">
+            <label for="cmd">Run your Docker command:</label>
+            <input type="text" id="cmd" name="cmd" placeholder="Type your command..." required>
+            <button type="submit">Run</button>
+        </form>
+        <div class="output-container">
+                <pre></pre>
+        </div>
+    </div>
+</body>
+</html>
