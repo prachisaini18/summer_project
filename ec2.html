@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>EC2 Instance Launch</title>
+</head>
+<body>
+    <header>
+        <h1>EC2 Instance Launch</h1>
+    </header>
+    <main>
+        <div class="chat-container">
+            <form id="launch-form" action="/cgi-bin/launch_ec2.py" method="post">
+                <label for="image-id">Image ID:</label>
+                <input type="text" id="image-id" name="image_id" value="ami-0ded8326293d3201b" readonly>
+                <br> <br>
+                <label for="instance-type">Instance Type:</label>
+                <input type="text" id="instance-type" name="instance_type" value="t2.micro" readonly>
+                <br> <br>
+                <button type="submit">Launch Instance</button>
+            </form>
+            <div class="result-container">
+                <!-- The response from your CGI script will be displayed here -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
